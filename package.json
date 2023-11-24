@@ -1,0 +1,56 @@
+{
+  "name": "carbon-react-boilerplate",
+  "version": "0.0.0",
+  "scripts": {
+    "build": "next build",
+    "clean": "rimraf .next",
+    "develop": "next",
+    "format": "prettier --write '**/*.{js,md,scss,ts,tsx,yml}' '!**/{build,es,lib,storybook,ts,umd}/**'",
+    "format:diff": "prettier --list-different '**/*.{js,md,scss,ts,tsx,yml}' '!**/{build,es,lib,storybook,ts,umd}/**'",
+    "lint": "eslint src",
+    "lint:styles": "stylelint '**/*.{css,scss}' --report-needless-disables --report-invalid-scope-disables",
+    "start": "next start",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@carbon/react": "^1.19.0",
+    "@typescript-eslint/eslint-plugin": "5.46.1",
+    "next": "^13.0.7",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sass": "^1.57.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.3.0",
+    "@commitlint/config-conventional": "^17.3.0",
+    "eslint": "^8.30.0",
+    "eslint-config-carbon": "^2.18.0",
+    "eslint-config-next": "^13.0.7",
+    "husky": "^8.0.2",
+    "jest": "^29.3.1",
+    "jest-watch-typeahead": "^2.2.1",
+    "lint-staged": "^13.1.0",
+    "prettier": "^2.8.1",
+    "prettier-config-carbon": "^0.8.0",
+    "rimraf": "^3.0.2",
+    "stylelint": "^14.16.0",
+    "stylelint-config-carbon": "^1.11.0"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "lint-staged": {
+    "**/*.js": [
+      "prettier --write"
+    ],
+    "**/*.scss": [
+      "prettier --write",
+      "stylelint --report-needless-disables --report-invalid-scope-disables --allow-empty-input"
+    ],
+    "**/*.{md,yml}": [
+      "prettier --write"
+    ]
+  }
+}
